@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enter Your Information</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+            background-color: #f0f8ff;
+        }
+        input {
+            padding: 10px;
+            margin: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+        .done-button {
+            padding: 10px 20px;
+            font-size: 18px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .done-button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Enter Your Information</h1>
+    <form id="rentalForm" action="thankyou.html" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required>
+        <input type="text" name="address" placeholder="Your Address" required>
+        <input type="date" name="deliveryDate" placeholder="Delivery Date" required>
+        <input type="date" name="endDate" placeholder="End Date" required>
+        <input type="hidden" name="style" value="" id="bounceStyle">
+        <button type="submit" class="done-button">Done</button>
+    </form>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        document.getElementById('bounceStyle').value = urlParams.get('style');
+        
+        document.getElementById('rentalForm').onsubmit = function() {
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            fetch('https://formspree.io/f/myzgwbpp', {
+                method: 'POST',
+                body: JSON.stringify(data),
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+        };
+    </script>
+
+</body>
+</html>
