@@ -34,28 +34,44 @@
 <body>
 
     <h1>Enter Your Information</h1>
-    <form id="rentalForm" action="thankyou.html" method="POST">
+    <form id="rentalForm">
         <input type="text" name="name" placeholder="Your Name" required>
         <input type="text" name="address" placeholder="Your Address" required>
         <input type="date" name="deliveryDate" placeholder="Delivery Date" required>
         <input type="date" name="endDate" placeholder="End Date" required>
-        <input type="hidden" name="style" value="" id="bounceStyle">
+        <input type="hidden" name="style" id="bounceStyle">
         <button type="submit" class="done-button">Done</button>
     </form>
 
     <script>
+        // Set the value of the hidden input from the URL parameters
         const urlParams = new URLSearchParams(window.location.search);
         document.getElementById('bounceStyle').value = urlParams.get('style');
-        
-        document.getElementById('rentalForm').onsubmit = function() {
+
+        // Handle form submission
+        document.getElementById('rentalForm').onsubmit = function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
             const formData = new FormData(this);
             const data = Object.fromEntries(formData);
+
             fetch('https://formspree.io/f/mvgpadvr', {
                 method: 'POST',
                 body: JSON.stringify(data),
                 headers: {
                     'Content-Type': 'application/json'
                 }
+            })
+            .then(response => response.json())
+            .then(result => {
+                alert('Your information has been sent successfully!');
+                // Optionally redirect to a thank you page or reset the form
+                // window.location.href = 'thankyou.html';
+                this.reset();
+            })
+            .catch(error => {
+                alert('There was an error sending your information.');
+                console.error('Error:', error);
             });
         };
     </script>
