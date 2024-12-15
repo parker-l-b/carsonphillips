@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carson Phillip's Home Page</title>
     <style>
-        /* Keyframes for Animations */
+        /* Existing animations */
         @keyframes fadeIn {
             from {
                 opacity: 0;
@@ -45,36 +45,43 @@
             }
         }
 
-        /* General Styles */
+        /* Modified body style with GIF background */
         body {
             font-family: 'Roboto', Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f9f9f9;
+            background: url('https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExc2t4ZWhxYXIxNDVkZ2s2Z3l1Zm80bWN6dmY0dXFtYXk1Nm8zYm51YyZlcD12MV9naWZzX3NlYXJjaCZjdD1n/3oEjHB1EKuujDjYFWw/giphy.gif') no-repeat center center fixed;
+            background-size: cover;
             color: #444;
             line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* Overlay to improve text readability */
+        .container {
+            max-width: 1100px;
+            margin: 30px auto;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
         }
 
         header {
-            background-color: #d3482e;
+            background-color: rgba(211, 72, 46, 0.8);
             color: #fff;
             padding: 20px 0;
             text-align: center;
             font-size: 1.8rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-
-        .container {
-            max-width: 1100px;
-            margin: 30px auto;
-            padding: 20px;
-            background: #fff;
-            border-radius: 10px;
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 10;
         }
 
         .quote-box {
-            background-color: #f4f4f4;
+            background-color: rgba(244, 244, 244, 0.9);
             padding: 20px;
             border-radius: 10px;
             text-align: center;
@@ -82,8 +89,11 @@
             font-size: 1.2rem;
             color: #333;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            animation: fadeIn 1.5s ease-in-out; /* Fade-in animation */
+            animation: fadeIn 1.5s ease-in-out;
+            position: relative;
+            z-index: 10;
         }
+}
 
         .quote-box h2 {
             color: #d3482e;
@@ -183,6 +193,7 @@
             margin-top: 30px;
             box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
         }
+        /* Rest of the existing styles remain the same */
     </style>
 </head>
 <body>
@@ -201,21 +212,20 @@
                 <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRyqhEmxWn_fYnesYnutD97Za4lHS5KclpWbQ&s" alt="Carson Phillips">
             </div>
             <div class="info-text">
-             <!-- ... existing content here ... -->
-                 <h2>About Me</h2>
-                <p>Hi, I’m Carson Phillips! I’m a high school senior with big dreams of becoming a world-renowned journalist and editor-in-chief of The New Yorker. Born and raised in a small, close minded town, I’ve always felt out of place in a world full of mediocrity. I’m ambitious, unapologetically sarcastic, and determined to escape my small-town existence to achieve greatness. Writing is my true passion, and I love telling stories that matter. I’m not afraid to speak my mind, even if it makes me a little bit of an outcast. Besides writing, I enjoy reading, critiquing people (constructively, of course), and plotting my future far away from here.</p>
+                <h2>About Me</h2>
+                <p>Hi, I'm Carson Phillips! I'm a high school senior with big dreams of becoming a world-renowned journalist and editor-in-chief of The New Yorker. Born and raised in a small, close minded town, I've always felt out of place in a world full of mediocrity. I'm ambitious, unapologetically sarcastic, and determined to escape my small-town existence to achieve greatness. Writing is my true passion, and I love telling stories that matter. I'm not afraid to speak my mind, even if it makes me a little bit of an outcast. Besides writing, I enjoy reading, critiquing people (constructively, of course), and plotting my future far away from here.</p>
                 <h2>What Im Working On</h2>
                 <p>At the moment, I'm putting together a class literary magazine for my classmates' work (mostly involuntarily) to fulfill my behind-the-scenes requirement to bolster my college application to Northwestern's journalism program. It's not entirely legit since a majority of my classmates couldn't care less about writing—or anything academic—but where there's a will (and a liitle blackmail)—there's a way.</p>
                 <h2>My Goals</h2>
                 <p>I'm leaving this place for good and never looking back. I'm going to Northwestern and studying journalism. I'm going to become one of the best writers of my generation. One day, I'll own my own firm and either own my own magazine or The New Yorker, writing all the intellectually stimulating articles that will change people's minds—and their Word docs—once published. But for now, the short term goal is to survive high school, get into the college of my dreams, and show all the skeptics that I've all along been on my way to success.</p>
                 <h2>My Favorite Websites!</h2>
-            <ul class="links">
-                <li><a href="https://www.northwestern.edu" target="_blank">Northwestern University</a></li> Northwestern is where I'm trying to get accepted for college. It is the first step in my master plan to become an editor for the "New Yorker". Hopefully my acceptance letter arrives soon...
-                <li><a href="https://www.newyorker.com" target="_blank">The New Yorker</a></li> As I've said before, my final goal is to be an editor of the "New Yorker", so I often go to their website and admire the quality of their journalism.
-                <li><a href="https://www.collegeconfidential.com" target="_blank">The College Confidential</a></li> I often use this website to research applications, and scholarship opportunities to aid me in getting to Northwestern.
-                <li><a href="https://www.theparisreview.org" target="_blank">The Paris Review</a></li> I often go to "The Paris review" to get inspiration for the literary magazine I'm currently developing.(See the "What I'm Working On" section to learn more about that)
-                <li><a href="https://www.ted.com" target="_blank">TED</a></li> I enjoy watching these thought provoking talks on success, creativity, and storytelling when I'm not working on a project.
-            </ul>
+                <ul class="links">
+                    <li><a href="https://www.northwestern.edu" target="_blank">Northwestern University</a></li> Northwestern is where I'm trying to get accepted for college. It is the first step in my master plan to become an editor for the "New Yorker". Hopefully my acceptance letter arrives soon...
+                    <li><a href="https://www.newyorker.com" target="_blank">The New Yorker</a></li> As I've said before, my final goal is to be an editor of the "New Yorker", so I often go to their website and admire the quality of their journalism.
+                    <li><a href="https://www.collegeconfidential.com" target="_blank">The College Confidential</a></li> I often use this website to research applications, and scholarship opportunities to aid me in getting to Northwestern.
+                    <li><a href="https://www.theparisreview.org" target="_blank">The Paris Review</a></li> I often go to "The Paris review" to get inspiration for the literary magazine I'm currently developing.(See the "What I'm Working On" section to learn more about that)
+                    <li><a href="https://www.ted.com" target="_blank">TED</a></li> I enjoy watching these thought provoking talks on success, creativity, and storytelling when I'm not working on a project.
+                </ul>
             </div>
         </section>
 
@@ -239,13 +249,13 @@
         document.addEventListener('DOMContentLoaded', () => {
             const quotes = [
                  "...because a life without meaning, without drive or focus, without dreams or goals, isn't a life worth living.",
-            "You've got to show the world who you are before it tells you. Otherwise you become victim to someone you're not.",
-            "You don’t get to pick where you’re from, but you always have control of where you’re going.",
-            "... hits you and tries to escape and be expressed any way possible. A way, it's a lot like...lightning.",
-            "From this day on, I refuse to let anyone bring me to a point where I can't take a horrible situation and spin it into something beneficial. I will never let anyone make me feel anything I don't want to feel again or rob me of the passions that make me who I am.",
-            "To Grandma: Once upon a time, there was a boy who flew.",
-            "You've got to show the world who you are before it tells you.",
-            "But we're all a part of a minority waiting for a majority to pull their heads out of their a**es."
+                "You've got to show the world who you are before it tells you. Otherwise you become victim to someone you're not.",
+                "You don't get to pick where you're from, but you always have control of where you're going.",
+                "... hits you and tries to escape and be expressed any way possible. A way, it's a lot like...lightning.",
+                "From this day on, I refuse to let anyone bring me to a point where I can't take a horrible situation and spin it into something beneficial. I will never let anyone make me feel anything I don't want to feel again or rob me of the passions that make me who I am.",
+                "To Grandma: Once upon a time, there was a boy who flew.",
+                "You've got to show the world who you are before it tells you.",
+                "But we're all a part of a minority waiting for a majority to pull their heads out of their a**es."
             ];
 
             const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
