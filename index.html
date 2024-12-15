@@ -215,8 +215,9 @@ footer {
         <p>&copy; 2024 Parker Brodsky. All rights reserved.</p>
     </footer>
 
-    <script>
-        // JavaScript for Quote of the Day
+   <script>
+    // JavaScript for Quote of the Day
+    document.addEventListener('DOMContentLoaded', () => {
         const quotes = [
             "...because a life without meaning, without drive or focus, without dreams or goals, isn't a life worth living.",
             "You've got to show the world who you are before it tells you. Otherwise you become victim to someone you're not.",
@@ -225,13 +226,21 @@ footer {
             "From this day on, I refuse to let anyone bring me to a point where I can't take a horrible situation and spin it into something beneficial. I will never let anyone make me feel anything I don't want to feel again or rob me of the passions that make me who I am.",
             "To Grandma: Once upon a time, there was a boy who flew.",
             "You've got to show the world who you are before it tells you.",
-            "But we're all a part of a minority waiting for a majority to pull their heads out of their a**es.”
-            ];
+            "But we're all a part of a minority waiting for a majority to pull their heads out of their a**es."
+        ];
+
         // Select a random quote
         const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
 
         // Display the quote
-        document.getElementById('quote').textContent = randomQuote;
-    </script>
+        const quoteElement = document.getElementById('quote');
+        if (quoteElement) {
+            quoteElement.textContent = randomQuote;
+        } else {
+            console.error("Element with id 'quote' not found in the DOM.");
+        }
+    });
+</script>
+
 </body>
 </html>
