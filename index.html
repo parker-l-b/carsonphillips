@@ -194,6 +194,78 @@
             box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
         }
         /* Rest of the existing styles remain the same */
+        .discussion-board {
+    margin-top: 40px;
+    padding: 20px;
+    background-color: rgba(244, 244, 244, 0.9);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.discussion-board h2 {
+    font-size: 1.6rem;
+    color: #d3482e;
+    margin-bottom: 20px;
+    text-align: center;
+    border-bottom: 2px solid #f4f4f4;
+    padding-bottom: 5px;
+}
+
+.comments-container {
+    max-height: 300px;
+    overflow-y: auto;
+    margin-bottom: 15px;
+}
+
+#comments-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#comments-list li {
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#comment-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#comment-input {
+    width: 100%;
+    height: 80px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+#comment-input:focus {
+    outline: none;
+    border-color: #d3482e;
+}
+
+#comment-form button {
+    align-self: flex-end;
+    padding: 10px 20px;
+    background-color: #d3482e;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#comment-form button:hover {
+    background-color: #7b241c;
+}
+
     </style>
 </head>
 <body>
@@ -242,8 +314,53 @@
             </div>
         </section>
     </div>
-<script defer src="https://cdn.commento.io/js/commento.js"></script>
-<div id="commento"></div>
+    <section class="discussion-board">
+    <h2>Discussion Board</h2>
+    <div class="comments-container">
+        <ul id="comments-list"></ul>
+    </div>
+    <form id="comment-form">
+        <textarea id="comment-input" placeholder="Write a comment..." required></textarea>
+        <button type="submit">Post Comment</button>
+    </form>
+</section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const commentForm = document.getElementById('comment-form');
+        const commentInput = document.getElementById('comment-input');
+        const commentsList = document.getElementById('comments-list');
+
+        // Load comments from local storage (optional)
+        const savedComments = JSON.parse(localStorage.getItem('comments')) || [];
+        savedComments.forEach(comment => addCommentToDOM(comment));
+
+        // Handle form submission
+        commentForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const commentText = commentInput.value.trim();
+            if (commentText !== '') {
+                addCommentToDOM(commentText);
+                saveComment(commentText);
+                commentInput.value = ''; // Clear input
+            }
+        });
+
+        // Add a comment to the DOM
+        function addCommentToDOM(commentText) {
+            const li = document.createElement('li');
+            li.textContent = commentText;
+            commentsList.appendChild(li);
+        }
+
+        // Save a comment to local storage (optional)
+        function saveComment(commentText) {
+            savedComments.push(commentText);
+            localStorage.setItem('comments', JSON.stringify(savedComments));
+        }
+    });
+</script>
+
     <footer>
         <p>&copy; 2024 Parker Brodsky. All rights reserved.</p>
     </footer>
