@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forum</title>
+    <style>
+        body { font-family: Arial, sans-serif; background-color: #f0f0f0; margin: 20px; }
+        form { margin-bottom: 20px; }
+        .messages { background: white; padding: 10px; border-radius: 5px; box-shadow: 0 0 5px rgba(0, 0, 0, 0.2); }
+    </style>
+</head>
+<body>
+    <h1>Forum</h1>
+    <form action="/add" method="POST">
+        <input type="text" name="username" placeholder="Your name" required>
+        <br>
+        <textarea name="message" placeholder="Your message" required></textarea>
+        <br>
+        <button type="submit">Post</button>
+    </form>
+    <div class="messages">
+        <% messages.forEach(message => { %>
+            <p><strong><%= message.username %>:</strong> <%= message.message %></p>
+        <% }) %>
+    </div>
+</body>
+</html>
